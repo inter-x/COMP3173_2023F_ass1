@@ -1,0 +1,5 @@
+nat bool fun ( ;
+[bla bla bla]
+main
+if
+[This file tests spaces, indents, and line breaks.]

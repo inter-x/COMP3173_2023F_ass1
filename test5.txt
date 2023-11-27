@@ -1,0 +1,3 @@
+fun plus nat x nat y -> T ? x + y : 0;
+T ? (plus 1 4+2) : 0
+[This is a valid testcase from project description.]
