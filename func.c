@@ -12,7 +12,7 @@
 #include "lexer.h"
 #include "string.h"
 
-#define MAXLINE 100000
+#define MAXLINE 100
 #define BUFLEN  1024
 
 int main(){
@@ -20,7 +20,7 @@ int main(){
 	char buf[BUFLEN];
 	int len=0,i=0;
 	char *array[MAXLINE];
-	file=fopen("test3.txt","r");
+	file=fopen("test6.txt","r");
 	while(fgets(buf,BUFLEN,file))//¶ÁÈ¡TXTÖÐ×Ö·û
 	{
 		len=strlen(buf);
@@ -42,18 +42,30 @@ int main(){
 		
 		if(tmp.is_L==-3){
 			printf("-3");
-			//break;			
+			break;			
 		}
 		else if(tmp.is_L==-2){
 			printf("-2");
-			printf("error ' %s ' is not an operator.\n",tmp.s);
-			break;
+			printf("%s\n",(tmp.id_name));
+			if(strlen(tmp.s)==0){
+				printf("a");
+				printf("%d",tmp.end);
+				break;
+			}
+			else{
+				printf("b");
+				printf("error ' %s ' is not an operator.\n",tmp.s);
+				break;
+			}
 		}
+	//	else if(tmp.is_L==-4){
+	//		printf("EOF");
+	//		break;
+	//	}
 		else if(tmp.is_L==0){
 			printf("0\n");
 		}
 		else{	
-			ptinrf("Other");	
 			printf("start:%d	end:%d	len:%d\n",tmp.str,tmp.end,tmp.len);
 		}
 		char tokens[20];
@@ -65,6 +77,139 @@ int main(){
 		
 		k++;
 	}
-	printf("%s",array[i+2]);
+	
+	
+	while(i<len){
+		printf("__%d__%d\n",k,i);
+		My_token tmp = next_token(array[1],i,len);
+		
+		if(tmp.is_L==-3){
+			printf("-3");
+			break;			
+		}
+		else if(tmp.is_L==-2){
+			printf("-2");
+			printf("%s\n",(tmp.id_name));
+			if(strlen(tmp.s)==0){
+				printf("a");
+				printf("%d",tmp.end);
+				break;
+			}
+			else{
+				printf("b");
+				printf("error ' %s ' is not an operator.\n",tmp.s);
+				break;
+			}
+		}
+	//	else if(tmp.is_L==-4){
+	//		printf("EOF");
+	//		break;
+	//	}
+		else if(tmp.is_L==0){
+			printf("0\n");
+		}
+		else{	
+			printf("Other");	
+			printf("start:%d	end:%d	len:%d\n",tmp.str,tmp.end,tmp.len);
+		}
+		char tokens[20];
+		int l,r;
+		l = tmp.end-len+1;
+		r = tmp.end;
+
+		i = tmp.end+1;
+		
+		k++;
+	}
+	
+	//i=0;
+	
+	while(i<len){
+		printf("__%d__%d\n",k,i);
+		My_token tmp = next_token(array[2],i,len);
+		
+		if(tmp.is_L==-3){
+			printf("-3");
+			break;			
+		}
+		else if(tmp.is_L==-2){
+			printf("-2");
+			printf("%s\n",(tmp.id_name));
+			if(strlen(tmp.s)==0){
+				printf("a");
+				printf("%d",tmp.end);
+				break;
+			}
+			else{
+				printf("b");
+				printf("error ' %s ' is not an operator.\n",tmp.s);
+				break;
+			}
+		}
+	//	else if(tmp.is_L==-4){
+	//		printf("EOF");
+	//		break;
+	//	}
+		else if(tmp.is_L==0){
+			printf("0\n");
+		}
+		else{	
+			printf("Other");	
+			printf("start:%d	end:%d	len:%d\n",tmp.str,tmp.end,tmp.len);
+		}
+		char tokens[20];
+		int l,r;
+		l = tmp.end-len+1;
+		r = tmp.end;
+
+		i = tmp.end+1;
+		
+		k++;
+	}
+
+
+	while(i<len){
+		printf("************");
+		printf("__%d__%d\n",k,i);
+		My_token tmp = next_token(array[2],i,len);
+		
+		if(tmp.is_L==-3){
+			printf("-3");
+			break;			
+		}
+		else if(tmp.is_L==-2){
+			printf("-2");
+			printf("%s\n",(tmp.id_name));
+			if(strlen(tmp.s)==0){
+				printf("a");
+				printf("%d",tmp.end);
+				break;
+			}
+			else{
+				printf("b");
+				printf("error ' %s ' is not an operator.\n",tmp.s);
+				break;
+			}
+		}
+	//	else if(tmp.is_L==-4){
+	//		printf("EOF");
+	//		break;
+	//	}
+		else if(tmp.is_L==0){
+			printf("0\n");
+		}
+		else{	
+			printf("Other");	
+			printf("start:%d	end:%d	len:%d\n",tmp.str,tmp.end,tmp.len);
+		}
+		char tokens[20];
+		int l,r;
+		l = tmp.end-len+1;
+		r = tmp.end;
+
+		i = tmp.end+1;
+		
+		k++;
+	}
 	return 0;
 }
